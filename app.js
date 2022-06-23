@@ -56,26 +56,27 @@ key.forEach(function(item){
                 firstInput = display.textContent;
                 isThereDot = false;
                 input = "";
+                sign = ID
             }
             // sign = ID;
             history.innerHTML += this.textContent;
-            if (count > 1) signNext = ID
+            if (count > 1) sign = signNext
             // sign = signNext
-            // signNext = ID;
+            signNext = ID;
             count++;
         }
         
         if (ID == "equals" && input != "" || (count > 1 && item.classList.contains("key--operation") && input != 0)){
-            if (sign == "plus" || signNext == "plus"){
+            if (sign == "plus"){
                 output = (parseFloat(firstInput) + parseFloat(input)).toString();
             }
-            else if (sign == "minus" || signNext == 'minus'){
+            else if (sign == "minus"){
                 output = (parseFloat(firstInput) - parseFloat(input)).toString();
             }
-            else if (sign == "mult" || signNext == 'mult'){
+            else if (sign == "mult"){
                 output = (parseFloat(firstInput) * parseFloat(input)).toString();
             }
-            else if (sign == "divide" || signNext == 'divide'){
+            else if (sign == "divide"){
                 output = (parseFloat(firstInput) / parseFloat(input)).toString();
             }
             else {
