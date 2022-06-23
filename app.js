@@ -5,7 +5,7 @@ const key = document.querySelectorAll(".key")
 
 var input = "";
 var count = 0;
-isDot = true;
+isThereDot = false;
 var ID, firstInput, sign, signNext, output;
 display.innerHTML = "0"
  
@@ -21,7 +21,7 @@ key.forEach(function(item){
             history.innerHTML = "";
             display.innerHTML = "0";
             input = "";
-            dot = true;
+            isThereDot = false;
             count = 0;
             sign = "";
             display.classList.remove("display--small")
@@ -32,13 +32,13 @@ key.forEach(function(item){
             
             display.classList.remove("display--small")
 
-            if (ID == "." && dot == true) {
+            if (ID == "." && !isThereDot) {
                 if (input == "") {
                     ID = "0."
                 }
-                dot = false;
+                isThereDot = false;
             }
-            else if (ID == "." && dot == false) ID = "";
+            else if (ID == "." && isThereDot) ID = "";
 
             if (ID == "0" && input == "") {
                 input = "";
@@ -54,26 +54,28 @@ key.forEach(function(item){
             item.classList.add("active");
             if (count == 0) {
                 firstInput = display.textContent;
+                isThereDot = false;
                 input = "";
-                dot = true;
-                sign = ID;
             }
+            // sign = ID;
             history.innerHTML += this.textContent;
-            signNext = ID;
+            if (count > 1) signNext = ID
+            // sign = signNext
+            // signNext = ID;
             count++;
         }
         
-        if (ID == "equals" && input != "" || (count > 1 && item.classList.contains("key--operation") && input != "")){
-            if (sign == "plus"){
+        if (ID == "equals" && input != "" || (count > 1 && item.classList.contains("key--operation") && input != 0)){
+            if (sign == "plus" || signNext == "plus"){
                 output = (parseFloat(firstInput) + parseFloat(input)).toString();
             }
-            else if (sign == "minus"){
+            else if (sign == "minus" || signNext == 'minus'){
                 output = (parseFloat(firstInput) - parseFloat(input)).toString();
             }
-            else if (sign == "mult"){
+            else if (sign == "mult" || signNext == 'mult'){
                 output = (parseFloat(firstInput) * parseFloat(input)).toString();
             }
-            else if (sign == "divide"){
+            else if (sign == "divide" || signNext == 'divide'){
                 output = (parseFloat(firstInput) / parseFloat(input)).toString();
             }
             else {
@@ -83,10 +85,10 @@ key.forEach(function(item){
                 display.classList.add("display--small")
             }
             display.innerHTML = output;
-            sign = signNext;
+            if (count > 1 && item.classList.contains("key--operation")) sign = signNext;
             firstInput = output;
             input = "";
-            dot = true;
+            isThereDot = false;
 
         }
     })

@@ -31,7 +31,7 @@ button {
 
 }
 .display__0 {
-    /* width: 178px; */
+    width: 178px;
     line-height: 1;
     font-weight: 300;
     text-align: right;
@@ -49,10 +49,12 @@ button {
 .display {
     font-size: 38px;
     color: white;
+    max-width:100%;
 }
 .display--small {
     font-size: 24px;
     padding-top: 13px;
+    /* max-width:100%; */
 }
 .keyboard {
     display: grid;
