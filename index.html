@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="display__0">
+            <div class="history"></div>
+            <div class="display"></div>
+        </div>
+        <div class="keyboard">
+            <div class="general-operations">
+                <button type="button" class="key key--gray" id="AC">AC</button>
+                <button type="button" class="key key--gray">+/-</button>
+                <button type="button" class="key key--gray">&percnt;</button>
+            </div>
+            <div class="numbers">
+                <button type="button" class="key key--number" id="7">7</button>
+                <button type="button" class="key key--number" id="8">8</button>
+                <button type="button" class="key key--number" id="9">9</button>
+                <button type="button" class="key key--number" id="4">4</button>
+                <button type="button" class="key key--number" id="5">5</button>
+                <button type="button" class="key key--number" id="6">6</button>
+                <button type="button" class="key key--number" id="1">1</button>
+                <button type="button" class="key key--number" id="2">2</button>
+                <button type="button" class="key key--number" id="3">3</button>
+                <button type="button" class="key key--number key--number-zero" id="0"><div class="key">0</div></button>
+                <button type="button" class="key key--number" id=".">.</button>
+            </div>
+            <div class="main-operations">
+                <button type="button" class="key key--orange key--operation" id="divide">&divide;</button>
+                <button type="button" class="key key--orange key--operation key--operation-x" id="mult">&#10005;</button>
+                <button type="button" class="key key--orange key--operation" id="minus">&minus;</button>
+                <button type="button" class="key key--orange key--operation" id="plus">&plus;</button>
+                <button type="button" class="key key--orange" id="equals">&equals;</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
