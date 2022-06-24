@@ -6,7 +6,7 @@ const key = document.querySelectorAll(".key")
 var input = "";
 var count = 0;
 isThereDot = false;
-var ID, firstInput, sign, signNext, output;
+var ID, firstInput, sign, signNext, conditionalSign, output;
 display.innerHTML = "0"
  
 
@@ -57,14 +57,13 @@ key.forEach(function(item){
                 isThereDot = false;
                 input = "";
                 sign = ID
-            }
-            // sign = ID;
+            } else sign = signNext
             history.innerHTML += this.textContent;
-            if (count > 1) sign = signNext
-            // sign = signNext
             signNext = ID;
             count++;
-        }
+            conditionalSign = ID
+        } 
+        else if (ID == "equals") sign = conditionalSign
         
         if (ID == "equals" && input != "" || (count > 1 && item.classList.contains("key--operation") && input != 0)){
             if (sign == "plus"){
